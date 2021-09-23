@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  height: 100%;
+  background-color: aqua;
+}
+
+.buttons {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/*Horizontal Navigation Bar*/
+/*Removing the list style of the list eg[Bullets] and adding some design*/
+.horizontal-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #0018c3;
+}
+/* Navigation link Simple Default Design */
+.horizontal-menu li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+/* Navigation Link Design if active */
+.horizontal-menu .active {
+  background-color: #1cbb09;
+  color: white;
+}
+/* Displaying the list items horizontally and adding border to the right serve as the divider of each items */
+.horizontal-menu li {
+  float: left;
+  border-right: 1px solid #bbb;
+}
+/*Removing the right border of the list last item*/
+.horizontal-menu li:last-child {
+  border-right: none;
+}
+/* Changing the background color of the link when hovered. */
+.horizontal-menu li a:hover {
+  background-color: #111;
+}

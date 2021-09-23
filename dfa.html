@@ -16,37 +16,25 @@
     <div class="navbar-header">
 	  	<div class="horizontal-menu">
         <ul>
-            <li><a href="index.html" class="active">TRANSFORMATIONS</a></li>
-            <li><a href="dfa.html">DFA/NFA Builder</a></li>
+            <li><a href="index.html">TRANSFORMATIONS</a></li>
+            <li><a href="dfa.html" class="active">DFA/NFA</a></li>
             <li><a href="lr.html">LR</a></li>
-            <li><a href="lr.html">DFA to Regex</a></li>
         </ul>
     </div>
     </div>
   </div>
 </nav>
 
-<div class="container">
-
+<h3>input regex</h3>
 <textarea id="input"
   style="margin-top: 50px;width:auto; height: 200px; border: solid 1px;">
-%start: E;
-E: E "+" E | NUM; 
+a*b|c+d
 </textarea>
 
-<div class="buttons">
-<button  onclick="left()">Left Recursion</button>
-<button >Left Factoring</button>
-<button >Precedence</button>
-</div>
-
-<textarea id="output"
-  style="margin-top: 50px;width: fit-content; height: 200px; border: solid 1px;">
-%start: E;
-E: NUM ("+" E)*; 
-</textarea>
-
-</div>
+<select>
+  <option value="minimize">minimize</option>
+</select>
+<button onclick="DFA()">draw</button>
 
 </body
 
