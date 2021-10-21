@@ -1,6 +1,8 @@
+import "./styles.css";
+
 var url = "https://parserx-rest.herokuapp.com/";
 
-function toBr(str) {
+/*function toBr(str) {
   return str.split("\n").map(function (line) {
     return (
       <span>
@@ -9,22 +11,22 @@ function toBr(str) {
       </span>
     );
   });
-}
+}*/
 
 function left() {
-  let input = document.getElementById("input");
+  /*let input = document.getElementById("input");
   let output = document.getElementById("output");
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open("GET", url);
   xmlHttp.send(null);
   let out = xmlHttp.responseText;
-  console.log(out);
+  console.log(out);*/
   //output.innerHTML = out;
 }
 
 function Trans() {
   return (
-    <>
+    <div className="container">
       <textarea
         id="input"
         style={{
@@ -54,7 +56,7 @@ function Trans() {
         }}
         defaultValue={'%start: E;\nE: NUM ("+" E)*;'}
       />
-    </>
+    </div>
   );
 }
 
