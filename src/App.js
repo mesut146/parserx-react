@@ -3,9 +3,9 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Header from "./header";
 import Trans from "./trans";
 import DFA from "./dfa";
+import FSM2Regex from "./fsm2regex";
 
 function Page(p) {
-  console.log("page id=" + p.id);
   if (p.id === "1") {
     return (
       <>
@@ -20,22 +20,31 @@ function Page(p) {
         <DFA />
       </>
     );
+  } else if (p.id === "3") {
+    return (
+      <>
+        <Header id="3" />
+        <FSM2Regex />
+      </>
+    );
   }
-  return <h1>No page selected</h1>;
 }
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Switch>
         <Route path="/dfa">
           <Page id="2" />
+        </Route>
+        <Route path="/regex">
+          <Page id="3" />
         </Route>
         <Route path="/">
           <Page id="1" />
         </Route>
       </Switch>
-    </>
+    </BrowserRouter>
   );
 }
 

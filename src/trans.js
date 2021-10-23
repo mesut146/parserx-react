@@ -1,5 +1,3 @@
-import "./styles.css";
-
 var url = "https://parserx-rest.herokuapp.com/";
 
 /*function toBr(str) {
@@ -36,13 +34,11 @@ function Trans() {
           border: "solid 1px",
           whiteSpace: "pre-line",
         }}
-        defaultValue={['%start: E;\nE: E "+" E | NUM;']}
-      />
-
+        defaultValue={'%start: E;\nE: E "+" E | NUM;'}
+      ></textarea>
       <div className="buttons">
         <button onClick={left}>Left Recursion</button>
         <button>Left Factoring</button>
-        <button>Precedence</button>
         <button>Epsilon Removal</button>
       </div>
 

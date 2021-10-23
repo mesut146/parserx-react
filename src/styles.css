@@ -1,7 +1,10 @@
+body {
+  background-color: #f1efed;
+}
+
 .container {
   display: flex;
   height: 100%;
-  background-color: aqua;
 }
 
 .buttons {
@@ -11,22 +14,29 @@
   justify-content: center;
 }
 
+.buttons button {
+  margin: 5px;
+}
+
 /*Horizontal Navigation Bar*/
 /*Removing the list style of the list eg[Bullets] and adding some design*/
 .horizontal-menu ul {
+  /*display: inline-block;*/
+  display: flex;
   list-style-type: none;
-  margin: 0;
   padding: 0;
+  justify-content: center;
+  margin: auto;
   overflow: hidden;
-  background-color: #0018c3;
+  background-color: #403c38;
 }
-/* Navigation link Simple Default Design */
+
 .horizontal-menu li a {
   display: block;
   color: white;
   text-align: center;
+  text-decoration: solid;
   padding: 14px 16px;
-  text-decoration: none;
 }
 /* Navigation Link Design if active */
 .horizontal-menu .active {
@@ -45,4 +55,8 @@
 /* Changing the background color of the link when hovered. */
 .horizontal-menu li a:hover {
   background-color: #111;
+}
+
+.horizontal-menu {
+  background-color: #403c38;
 }
