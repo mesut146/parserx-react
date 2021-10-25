@@ -20,7 +20,7 @@ function Header(p) {
               </li>
               <li>
                 <Link to="/lr" className={p.id === "4" ? "active" : "null"}>
-                  LR
+                  LR/LALR
                 </Link>
               </li>
               <li>

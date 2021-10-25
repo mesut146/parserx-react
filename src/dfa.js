@@ -1,53 +1,53 @@
-import react from "react";
 import reactDom from "react-dom";
+import { post } from "./api";
+import { Graphviz } from "graphviz-react";
 
 let examples = [
   "abc|ade",
   "a*b|c+d",
   'NUM: DIGIT ("." DIGIT*)?;\nDIGIT: [0-9]; ',
 ];
-let url = "https://parserx-rest.herokuapp.com";
 
-async function process(e) {
+async function process() {
   let input = document.getElementById("input").value;
   let type = document.getElementById("type-select");
   let select = document.getElementById("dfa-select");
   let i = select.selectedIndex;
 
-  var outText = "";
-  if (i === 0) {
-    //NFA
-    if (type.selectedIndex === 0) {
-      //regex
-      let res = await fetch(url + "/nfa?in=regex&out=fsm", {
-        method: "POST",
-        headers: { "Content-Type": "text/plain" },
-        body: { input },
-      });
-      outText = await res.text();
-    } else {
-      //grammar
-      let res = await fetch(url + "/nfa?in=grammar&out=fsm", {
-        method: "POST",
-        headers: { "Content-Type": "text/plain" },
-        body: { input },
-      });
-      outText = await res.text();
-    }
-    let out = (
-      <textarea
-        style={{ width: "50%", height: "400px", marginTop: "20px" }}
-        defaultValue={outText}
-      />
-    );
-    reactDom.render(out, document.getElementById("right"));
-  } else if (i === 1) {
-    //DFA
-  } else if (i === 2) {
-    //dot NFA
-  } else if (i === 3) {
-    //dot DFA
+  let opt = i === 1 || i == 3 ? "&opt=false" : "";
+  let inputType = type.selectedIndex === 0 ? "regex" : "grammar";
+  if (i === 0 || i === 1) {
+    //FSM
+    post(`/nfa?in=${inputType}&out=fsm` + opt, input, (out) => {
+      makeOutArea(out);
+    });
+  } else if (i === 2 || i === 3) {
+    //dot
+    post(`/nfa?in=${inputType}&out=dot` + opt, input, (out) => {
+      makeDot(out);
+    });
   }
+}
+
+function makeDot(dot) {
+  let html = <Graphviz dot={dot} />;
+  reactDom.render(html, document.getElementById("right"));
+}
+
+function makeOutArea(outText) {
+  let old = document.getElementById("output");
+  if (old != undefined) {
+    old.value = outText;
+    return;
+  }
+  let outArea = (
+    <textarea
+      id="output"
+      style={{ width: "50%", height: "400px", marginTop: "20px" }}
+      defaultValue={outText}
+    />
+  );
+  reactDom.render(outArea, document.getElementById("right"));
 }
 
 function onExampleChange(e) {
@@ -102,7 +102,7 @@ function DFA() {
           defaultValue={examples[0]}
         />
 
-        <div>
+        <div style={{ margin: "5px" }}>
           <select id="dfa-select">
             <option>NFA</option>
             <option>DFA</option>
@@ -110,7 +110,9 @@ function DFA() {
             <option>draw DFA</option>
           </select>
 
-          <button onClick={process}>process</button>
+          <button onClick={process} style={{ margin: "5px" }}>
+            process
+          </button>
         </div>
       </div>
       <div id="right"></div>

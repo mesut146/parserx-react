@@ -40,6 +40,9 @@ function App() {
         <Route path="/regex">
           <Page id="3" />
         </Route>
+        <Route path="/lr">
+          <Page id="4" />
+        </Route>
         <Route path="/">
           <Page id="1" />
         </Route>
