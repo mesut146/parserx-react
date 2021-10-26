@@ -16,6 +16,9 @@ async function process() {
 
   let opt = i === 1 || i == 3 ? "&opt=false" : "";
   let inputType = type.selectedIndex === 0 ? "regex" : "grammar";
+  if (type.selectedIndex === 1) {
+    input = "token{\n" + input + "\n}";
+  }
   if (i === 0 || i === 1) {
     //FSM
     post(`/nfa?in=${inputType}&out=fsm` + opt, input, (out) => {

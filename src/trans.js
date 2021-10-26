@@ -62,6 +62,7 @@ function Trans() {
         <button onClick={() => handle("left")}>Left Recursion</button>
         <button onClick={() => handle("factor")}>Left Factoring</button>
         <button onClick={() => handle("epsilon")}>Epsilon Removal</button>
+        <button onClick={() => handle("ebnf")}>EBNF to BNF</button>
       </div>
 
       <textarea
