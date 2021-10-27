@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import awaken from "./api";
+import { awaken } from "./api";
 import App from "./App";
 
 awaken();
