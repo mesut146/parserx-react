@@ -1,5 +1,9 @@
 const url = "https://parserx-rest.herokuapp.com";
 
+function awaken() {
+  fetch(url);
+}
+
 async function post(path, input, callback) {
   if (!path.startsWith("/")) {
     path = "/" + path;
@@ -21,4 +25,4 @@ async function post(path, input, callback) {
     });
 }
 
-export { url, post };
+export { url, post, awaken };
