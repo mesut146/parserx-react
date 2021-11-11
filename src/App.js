@@ -1,5 +1,5 @@
 import "./styles.css";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, HashRouter } from "react-router-dom";
 import Header from "./header";
 import Trans from "./trans";
 import DFA from "./dfa";
@@ -38,9 +38,10 @@ function Page(p) {
   }
 }
 
+
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Switch>
         <Route path="/dfa">
           <Page id="2" />
@@ -55,7 +56,7 @@ function App() {
           <Page id="1" />
         </Route>
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
