@@ -4,6 +4,7 @@ import Header from "./header";
 import Trans from "./trans";
 import DFA from "./dfa";
 import FSM2Regex from "./fsm2regex";
+import LR from "./lr";
 
 function Page(p) {
   if (p.id === "1") {
@@ -25,6 +26,13 @@ function Page(p) {
       <>
         <Header id="3" />
         <FSM2Regex />
+      </>
+    );
+  } else if (p.id === "4") {
+    return (
+      <>
+        <Header id="4" />
+        <LR />
       </>
     );
   }

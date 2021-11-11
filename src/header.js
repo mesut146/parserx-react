@@ -6,7 +6,20 @@ function Header(p) {
     <nav className="navbar navbar-default " role="navigation">
       <div className="container-fluid">
         <div className="navbar-header">
-          <div className="horizontal-menu">
+          <div className="horizontal-menu" style={{ display: "flex" }}>
+            <span
+              id="status"
+              alt="server is not running"
+              width="20px"
+              height="20px"
+              style={{
+                marginTop: "auto",
+                marginBottom: "auto",
+                marginLeft: "10px",
+              }}
+            >
+              &#128308;
+            </span>
             <ul>
               <li>
                 <Link to="/" className={p.id === "1" ? "active" : "null"}>
@@ -24,10 +37,7 @@ function Header(p) {
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/regex"
-                  className={p.id === "3" ? "active" : "null"}
-                >
+                <Link to="/regex" className={p.id === "3" ? "active" : "null"}>
                   FSM to Regex
                 </Link>
               </li>

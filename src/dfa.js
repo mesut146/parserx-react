@@ -14,32 +14,33 @@ async function process() {
   let select = document.getElementById("dfa-select");
   let i = select.selectedIndex;
 
-  let opt = i === 1 || i == 3 ? "&opt=false" : "";
+  let opt = i === 1 || i === 3 ? "&opt=false" : "";
   let inputType = type.selectedIndex === 0 ? "regex" : "grammar";
   if (type.selectedIndex === 1) {
     input = "token{\n" + input + "\n}";
   }
   if (i === 0 || i === 1) {
     //FSM
-    post(`/nfa?in=${inputType}&out=fsm` + opt, input, (out) => {
+    post(`/nfa?in=${inputType}&out=fsm${opt}`, input, (out) => {
       makeOutArea(out);
     });
   } else if (i === 2 || i === 3) {
     //dot
-    post(`/nfa?in=${inputType}&out=dot` + opt, input, (out) => {
+    post(`/nfa?in=${inputType}&out=dot${opt}`, input, (out) => {
       makeDot(out);
     });
   }
 }
 
 function makeDot(dot) {
+  console.log(dot);
   let html = <Graphviz dot={dot} />;
   reactDom.render(html, document.getElementById("right"));
 }
 
 function makeOutArea(outText) {
   let old = document.getElementById("output");
-  if (old != undefined) {
+  if (old !== null) {
     old.value = outText;
     return;
   }

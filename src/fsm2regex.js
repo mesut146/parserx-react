@@ -1,6 +1,7 @@
 import { post } from "./api";
 
 const example = "start = 0\nfinal = 1\n0 -> 1 , a\n1 -> 1 , b";
+const exampleOut = '"a" "b"*';
 
 async function handle() {
   let input = document.getElementById("input").value;
@@ -24,7 +25,7 @@ export default function FSM2Regex() {
               border: "solid 1px",
               marginTop: "10px",
               marginBottom: "10px",
-              display:"block"
+              display: "block",
             }}
             defaultValue={example}
           />
@@ -40,7 +41,7 @@ export default function FSM2Regex() {
             height: "200px",
             border: "solid 1px",
           }}
-          defaultValue={'%start: E;\nE: NUM ("+" E)*;'}
+          defaultValue={exampleOut}
         />
       </div>
     </>
